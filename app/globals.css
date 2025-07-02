@@ -3,24 +3,76 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
+/* Pengaturan Dasar HTML dan Body */
+html, body {
+  height: 100%; /* Pastikan html dan body mengambil tinggi penuh viewport */
+  margin: 0;
+  padding: 0;
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
+/* Definisi CSS Variables untuk Tema Terang dan Gelap */
+/* Ini adalah alias yang akan Anda gunakan di JSX Anda */
+:root {
+  /* Font Family - Pastikan ini sesuai dengan yang diimpor di layout.jsx */
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+
+  /* --- Tema Putih (Light Mode) --- */
+  --color-text-primary: #111827; /* Hampir hitam (gray-900) */
+  --color-text-secondary: #374151; /* gray-700 */
+  --color-bg-primary: #ffffff; /* Putih bersih */
+  --color-bg-secondary: #f3f4f6; /* gray-100, untuk latar belakang elemen */
+  --color-border-primary: rgba(0,0,0,.03); /* Border untuk light mode */
+  --color-accent-light: #0f766e; /* Tailwind teal-700 untuk light mode accent */
+  --color-accent-dark: #2dd4bf; /* Default untuk dark mode accent, bisa disesuaikan */
 }
-.animation-delay-4000 {
-  animation-delay: 4s;
+
+/* --- Tema Hitam (Dark Mode) --- */
+.dark {
+  --color-text-primary: #f9fafb; /* Hampir putih (gray-50) */
+  --color-text-secondary: #d1d5db; /* gray-300 */
+  --color-bg-primary: #000000; /* Hitam pekat (mirip ifal.me) */
+  --color-bg-secondary: #111827; /* gray-900, untuk latar belakang elemen (mirip ifal.me) */
+  --color-border-primary: rgba(255,255,255,.1); /* Border untuk dark mode */
+  --color-accent-light: #2dd4bf; /* Tailwind teal-400 untuk dark mode accent (digunakan sebagai default accent) */
+  --color-accent-dark: #2dd4bf; /* Tailwind teal-400 untuk dark mode accent */
+}
+
+/* Definisi Keyframes untuk animasi 'blob' */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+
+/* --- KODE UNTUK MENYEMBUNYIKAN SCROLLBAR (tetap berfungsi) --- */
+
+/* Menyembunyikan scrollbar untuk Webkit browsers (Chrome, Safari) */
+/* Targetkan elemen html dan div utama yang memiliki overflow-y-scroll */
+html::-webkit-scrollbar,
+.snap-y.snap-proximity::-webkit-scrollbar {
+  display: none;
+  width: 0;  /* Memastikan tidak ada lebar yang diambil */
+  height: 0; /* Memastikan tidak ada tinggi yang diambil untuk horizontal */
+}
+
+/* Menyembunyikan scrollbar untuk Firefox */
+/* Targetkan elemen html dan div utama yang memiliki overflow-y-scroll */
+html,
+.snap-y.snap-proximity {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Menyembunyikan scrollbar untuk Internet Explorer dan Edge */
+/* Targetkan elemen html dan div utama yang memiliki overflow-y-scroll */
+html,
+.snap-y.snap-proximity {
+  -ms-overflow-style: none; /* IE and Edge */
 }

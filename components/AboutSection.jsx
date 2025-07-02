@@ -1,47 +1,74 @@
-// components/AboutSection.jsx
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+
+const codeString = `// Tentang Saya
+const nama = "Hamdika Putra";
+const role = "Frontend Developer";
+const location = "Yogyakarta, Indonesia";
+
+function getAboutMe() {
+  return {
+    passion: "Membangun UI yang interaktif & efisien",
+    skills: ["React", "Next.js", "TailwindCSS", "Framer Motion", "UI/UX"],
+    goal: "Terus belajar dan menciptakan solusi digital yang bermakna.",
+  };
+}
+
+console.log(getAboutMe());`;
 
 const AboutSection = () => {
+  const containerRef = useRef(null);
+  const [displayText, setDisplayText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [speed, setSpeed] = useState(80);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (index >= codeString.length) return;
+
+    intervalRef.current = setInterval(() => {
+      setDisplayText((prev) => prev + codeString.charAt(index));
+      setIndex((prev) => prev + 1);
+    }, speed);
+
+    return () => clearInterval(intervalRef.current);
+  }, [index, speed]);
+
+  const handleMouseMove = (e) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    const percentage = y / rect.height;
+
+    const minSpeed = 20;
+    const maxSpeed = 120;
+    const newSpeed = Math.floor(maxSpeed - (maxSpeed - minSpeed) * percentage);
+
+    setSpeed(newSpeed);
+  };
+
   return (
-    <section id="about" className="py-16 md:py-24 bg-gray-800 text-gray-100">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-        <motion.div
-          className="md:w-1/3 flex justify-center"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Image
-            src="/images/profile.jpg"
-            alt="Profil Nama Anda"
-            width={300}
-            height={300}
-            className="rounded-full object-cover w-64 h-64 md:w-80 md:h-80 border-4 border-teal-500 shadow-xl"
-          />
-        </motion.div>
-        <motion.div
-          className="md:w-2/3 text-center md:text-left"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold text-white mb-6">Tentang Saya</h2>
-          <p className="text-lg leading-relaxed mb-4">
-            Halo! Saya [Nama Anda], seorang <span className="font-semibold text-white">[Profesi Anda, misal: Web Developer dengan spesialisasi di frontend dan desain UI/UX]</span>. Saya memiliki passion dalam menciptakan solusi digital yang indah dan fungsional.
-          </p>
-          <p className="text-lg leading-relaxed mb-4">
-            Dengan latar belakang di [Sebutkan latar belakang/pendidikan/pengalaman, misal: ilmu komputer dan seni grafis], saya suka memecahkan masalah kompleks dan mengubahnya menjadi pengalaman pengguna yang intuitif dan menarik. Saya terbiasa bekerja dengan teknologi modern seperti React, Next.js, dan Tailwind CSS.
-          </p>
-          <p className="text-lg leading-relaxed">
-            Di luar coding, saya suka [Hobi/minat Anda, misal: membaca buku, menjelajahi alam, atau bermain musik]. Saya selalu mencari tantangan baru dan kesempatan untuk belajar dan berkembang. Mari kita berkolaborasi!
-          </p>
-        </motion.div>
+    <section
+      id="about"
+      className="relative min-h-screen w-full flex items-center justify-center px-4 py-16 bg-primary-bg text-primary-text overflow-hidden"
+    >
+      {/* Background Text "ABOUT" */}
+      <h1 className="absolute text-[28vw] font-black text-[#0000000a] dark:text-[#ffffff0a] select-none leading-none tracking-tight z-0 top-0 left-1/2 -translate-x-1/2">
+        ABOUT
+      </h1>
+
+      {/* Typing Effect Code Box */}
+      <div
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        className="relative z-10 bg-[#1e1e1e] text-[#d4d4d4] w-full max-w-4xl rounded-xl shadow-xl p-6 md:p-10 font-mono text-sm md:text-base leading-relaxed cursor-default"
+      >
+        <pre>
+          <code>{displayText}</code>
+        </pre>
       </div>
     </section>
   );

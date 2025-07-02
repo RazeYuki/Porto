@@ -1,21 +1,21 @@
 // app/metadata.js
+// TIDAK ADA 'use client' DI SINI
 
 export const metadata = {
-  title: 'Nama Anda | Portofolio Kreatif',
-  description: 'Portofolio personal dari [Nama Anda], seorang [Profesi Anda] yang fokus pada [Keahlian Utama Anda].',
-  keywords: ['portofolio', 'desainer', 'pengembang', 'nama anda', 'kreatif', 'web developer'],
-  authors: [{ name: 'Nama Anda' }],
+  title: 'Dika Portfolio', // <-- Ganti dengan nama portofolio Anda
+  description: 'Portofolio Dika sebagai seorang Frontend Developer', // <-- Ganti dengan deskripsi Anda
+  keywords: ['frontend', 'developer', 'react', 'nextjs', 'portfolio'],
+  authors: [{ name: 'Dika' }],
   openGraph: {
-    title: 'Nama Anda | Portofolio Kreatif',
-    description: 'Portofolio personal dari [Nama Anda], seorang [Profesi Anda] yang fokus pada [Keahlian Utama Anda].',
-    url: 'https://nama-website-anda.com', // Ganti dengan URL website Anda
-    siteName: 'Nama Anda Portofolio',
+    title: 'Dika Portfolio',
+    description: 'Portofolio Dika sebagai seorang Frontend Developer',
+    url: 'https://yourportfolio.com',
+    siteName: 'Dika Portfolio',
     images: [
       {
-        url: 'https://nama-website-anda.com/images/og-image.jpg', // Ganti dengan URL gambar Anda
-        width: 1200,
-        height: 630,
-        alt: 'Nama Anda Portofolio',
+        url: 'https://yourportfolio.com/og-image.jpg',
+        width: 800,
+        height: 600,
       },
     ],
     locale: 'id_ID',
@@ -23,9 +23,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nama Anda | Portofolio Kreatif',
-    description: 'Portofolio personal dari [Nama Anda], seorang [Profesi Anda] yang fokus pada [Keahlian Utama Anda].',
-    creator: '@username_twitter_anda', // Ganti dengan username Twitter Anda
-    images: ['https://nama-website-anda.com/images/og-image.jpg'], // Ganti dengan URL gambar Anda
+    title: 'Dika Portfolio',
+    description: 'Portofolio Dika sebagai seorang Frontend Developer',
+    creator: '@yourtwitterhandle',
+    images: ['https://yourportfolio.com/twitter-image.jpg'],
   },
 };

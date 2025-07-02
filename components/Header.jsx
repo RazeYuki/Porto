@@ -1,80 +1,141 @@
-// components/Header.jsx
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Volume2, VolumeX, Sun, Moon, Home, UserRound, Code, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import DigitalClock from './DigitalClock';
+
+const navItems = [
+  {
+    href: '/',
+    icon: <Home size={20} />, // home
+    label: 'Home'
+  },
+  {
+    href: '/about',
+    icon: <UserRound size={20} />, // aboutmainpage
+    label: 'about'
+  },
+  {
+    href: '/?section=projects',
+    icon: <Code size={20} />, // projects
+    label: 'Projects'
+  }
+];
+
+const socialItems = [
+  {
+    href: 'https://github.com/RazeYuki',
+    icon: <Github size={20} />, // github
+    label: 'GitHub'
+  },
+  {
+    href: 'https://www.linkedin.com/in/hamdika-putra-8a9b5629a/',
+    icon: <Linkedin size={20} />, // linkedin
+    label: 'LinkedIn'
+  }
+];
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isMuted, setIsMuted] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    } else {
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(prefersDarkMode);
+      document.documentElement.classList.toggle('dark', prefersDarkMode);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    document.documentElement.classList.toggle('dark', newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+  };
+
+  const toggleMute = () => {
+    const audio = document.querySelector('audio');
+    if (audio) {
+      audio.muted = !audio.muted;
+      setIsMuted(audio.muted);
+    }
   };
 
   return (
-    <header className="fixed w-full top-0 left-0 bg-gray-900 bg-opacity-90 backdrop-blur-sm z-50 shadow-lg">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo di kiri */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+    <header className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+      <nav className="flex items-center bg-primary-bg text-primary-text border border-border-primary rounded-full px-3 py-2 shadow-md">
+        {/* Navigation Items */}
+        {navItems.map((item, index) => (
+          <motion.div
+            key={item.href}
+            className="mx-1"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            animate={{ x: hoveredIndex !== null && hoveredIndex !== index ? (index < hoveredIndex ? -8 : 8) : 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          >
+            <Link
+              href={item.href}
+              className="inline-flex items-center justify-center size-10 rounded-full hover:bg-secondary-bg transition"
+              aria-label={item.label}
+            >
+              {item.icon}
+            </Link>
+          </motion.div>
+        ))}
+
+        {/* Separator */}
+        <div className="w-[1px] h-6 bg-border-primary mx-2" />
+
+        {/* Social Items */}
+        {socialItems.map((item, index) => (
+          <motion.div
+            key={item.href}
+            className="mx-1"
+            onMouseEnter={() => setHoveredIndex(index + navItems.length)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            animate={{ x: hoveredIndex !== null && hoveredIndex !== index + navItems.length ? (index + navItems.length < hoveredIndex ? -8 : 8) : 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          >
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center size-10 rounded-full hover:bg-secondary-bg transition"
+              aria-label={item.label}
+            >
+              {item.icon}
+            </a>
+          </motion.div>
+        ))}
+
+        {/* Separator */}
+        <div className="w-[1px] h-6 bg-border-primary mx-2" />
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="inline-flex items-center justify-center size-10 rounded-full hover:bg-secondary-bg transition"
+          aria-label="Toggle Theme"
         >
-          <Link href="/" className="text-2xl font-bold text-teal-500 hover:text-teal-400 transition-colors duration-300">
-            Dika.dev
-          </Link>
-        </motion.div>
+          {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
+        </button>
 
-        {/* --- Mulai Modifikasi di sini --- */}
-        {/* Kelompokkan jam dan navigasi desktop/mobile toggle */}
-        <div className="flex items-center space-x-1"> {/* Gunakan flex untuk mengelompokkan */}
-          <DigitalClock /> {/* Jam Digital */}
-
-          {/* Desktop Navigation */}
-          <motion.div
-            className="hidden md:flex space-x-8"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link href="#about" className="text-gray-300 hover:text-teal-500 transition-colors duration-300 text-lg">Tentang</Link>
-            <Link href="#projects" className="text-gray-300 hover:text-teal-500 transition-colors duration-300 text-lg">Proyek</Link>
-            <Link href="#contact" className="text-gray-300 hover:text-teal-500 transition-colors duration-300 text-lg">Kontak</Link>
-          </motion.div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500 rounded p-1">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                )}
-              </svg>
-            </button>
-          </div>
-        </div>
-        {/* --- Akhir Modifikasi --- */}
-
-        {/* Mobile Navigation (Conditional) */}
-        {isOpen && (
-          <motion.div
-            className="md:hidden absolute top-full left-0 w-full bg-gray-800 bg-opacity-95 backdrop-blur-md shadow-lg py-4 border-t border-gray-700"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="flex flex-col items-center space-y-4">
-              <Link href="#about" className="text-gray-100 hover:text-teal-500 transition-colors duration-300 text-xl" onClick={toggleMenu}>Tentang</Link>
-              <Link href="#projects" className="text-gray-100 hover:text-teal-500 transition-colors duration-300 text-xl" onClick={toggleMenu}>Proyek</Link>
-              <Link href="#contact" className="text-gray-100 hover:text-teal-500 transition-colors duration-300 text-xl" onClick={toggleMenu}>Kontak</Link>
-            </div>
-          </motion.div>
-        )}
+        {/* Mute Toggle */}
+        <button
+          onClick={toggleMute}
+          className="inline-flex items-center justify-center size-10 rounded-full hover:bg-secondary-bg transition ml-2"
+          aria-label="Toggle Mute"
+        >
+          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+        </button>
       </nav>
     </header>
   );
