@@ -29,7 +29,7 @@ const Header = () => {
 
         {/* --- Mulai Modifikasi di sini --- */}
         {/* Kelompokkan jam dan navigasi desktop/mobile toggle */}
-        <div className="flex items-center space-x-8"> {/* Gunakan flex untuk mengelompokkan */}
+        <div className="flex items-center space-x-1"> {/* Gunakan flex untuk mengelompokkan */}
           <DigitalClock /> {/* Jam Digital */}
 
           {/* Desktop Navigation */}
