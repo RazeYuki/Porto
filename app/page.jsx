@@ -1,17 +1,18 @@
+import dynamic from 'next/dynamic';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ToolsSection from '@/components/ToolsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import MusicPlayerTrigger from '@/components/MusicPlayerTrigger';
 import QuoteSection from "@/components/QuoteSection";
-import dynamic from 'next/dynamic';
 
+// ini kuncinya: pakai dynamic import agar cuma di-render di browser (client-side)
 const ScrollHandler = dynamic(() => import('@/components/ScrollHandler'), { ssr: false });
 
 export default function Home() {
   return (
     <main>
-      <ScrollHandler /> {/* Untuk handle scroll via ?section=... */}
+      <ScrollHandler /> {/* <--- aman untuk deploy */}
       <HeroSection />
       <AboutSection />
       <ToolsSection />

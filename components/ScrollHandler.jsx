@@ -18,7 +18,7 @@ const ScrollHandler = () => {
     }
   }, [searchParams]);
 
-  return null; // Tidak merender apa-apa
+  return null;
 };
 
 export default ScrollHandler;
