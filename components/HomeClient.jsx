@@ -6,9 +6,8 @@ import AboutSection from '@/components/AboutSection';
 import ToolsSection from '@/components/ToolsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import MusicPlayerTrigger from '@/components/MusicPlayerTrigger';
-import QuoteSection from "@/components/QuoteSection";
+import QuoteSection from '@/components/QuoteSection';
 
-// ScrollHandler hanya dirender di client
 const ScrollHandler = dynamic(() => import('@/components/ScrollHandler'), {
   ssr: false,
 });
