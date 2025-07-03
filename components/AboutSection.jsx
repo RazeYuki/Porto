@@ -1,17 +1,20 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const codeString = `// Tentang Saya
 const nama = "Hamdika Putra";
-const role = "Frontend Developer";
+const role = "Big Data & Machine Learning Enthusiast";
 const location = "Yogyakarta, Indonesia";
 
 function getAboutMe() {
   return {
-    passion: "Membangun UI yang interaktif & efisien",
-    skills: ["React", "Next.js", "TailwindCSS", "Framer Motion", "UI/UX"],
-    goal: "Terus belajar dan menciptakan solusi digital yang bermakna.",
+    background: "Mahasiswa Informatika - Universitas Amikom",
+    focus: ["Big Data Analytics", "Deep Learning", "Frontend Development"],
+    program: "Alumni Bangkit Academy - Machine Learning Path",
+    goal: "Membangun solusi digital berbasis AI dan teknologi modern.",
   };
 }
 
@@ -23,6 +26,7 @@ const AboutSection = () => {
   const [index, setIndex] = useState(0);
   const [speed, setSpeed] = useState(80);
   const intervalRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (index >= codeString.length) return;
@@ -53,7 +57,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen w-full flex items-center justify-center px-4 py-16 bg-primary-bg text-primary-text overflow-hidden"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 py-16 bg-primary-bg text-primary-text overflow-hidden"
     >
       {/* Background Text "ABOUT" */}
       <h1 className="absolute text-[28vw] font-black text-[#0000000a] dark:text-[#ffffff0a] select-none leading-none tracking-tight z-0 top-0 left-1/2 -translate-x-1/2">
@@ -70,6 +74,16 @@ const AboutSection = () => {
           <code>{displayText}</code>
         </pre>
       </div>
+
+      {/* Button Outside and Centered */}
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => router.push('/about')}
+        className="mt-8 z-10 rounded-lg border border-accent-light px-6 py-2 text-accent-light hover:bg-accent-light hover:text-primary-bg transition-colors duration-300"
+      >
+        Selengkapnya →
+      </motion.button>
     </section>
   );
 };

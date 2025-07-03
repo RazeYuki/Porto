@@ -1,28 +1,20 @@
 'use client';
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
   {
-    title: 'AernStore Feedback System',
-    image: '/images/aern.jpg',
-  },
-  {
-    title: 'Roasting HP GPT',
-    image: '/images/roastinghp.jpg',
-  },
-  {
-    title: 'Keluh Kesah App',
-    image: '/images/keluhkesah.jpg',
-  },
-  {
-    title: 'Portofolio Website',
-    image: '/images/portofolio.jpg',
-  },
-  {
-    title: 'Machine Learning Loan Classifier',
+    title: 'Prediksi Pinjaman Bank',
     image: '/images/loanml.jpg',
+    link: 'https://pinjaman-cvau8lsjucr8poxn2qlnri.streamlit.app/#hasil-prediksi',
   },
+  {
+    title: 'Aplikasi J-Go',
+    image: '/images/Jgo.png',
+    link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
+  },
+  
 ];
 
 const ProjectSection = () => {
@@ -34,9 +26,13 @@ const ProjectSection = () => {
   };
 
   return (
-    <section
+    <motion.section
       id="projects"
-      className="relative min-h-screen w-full px-6 py-24 bg-primary-bg text-primary-text flex items-center justify-center overflow-hidden"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
+      className="relative min-h-screen w-full px-6 pt-12 pb-20 bg-primary-bg text-primary-text flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* Background Title */}
@@ -48,28 +44,33 @@ const ProjectSection = () => {
       <div className="relative z-10 w-full max-w-5xl">
         <div className="relative pl-4 border-l border-border-primary space-y-6">
           {projects.map((project, idx) => (
-            <motion.div
+            <motion.a
               key={idx}
               onMouseEnter={() => setHoveredProject(project)}
               onMouseLeave={() => setHoveredProject(null)}
+              href={project.link || undefined}
+              target={project.link ? '_blank' : undefined}
+              rel={project.link ? 'noopener noreferrer' : undefined}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="group cursor-pointer pb-4 border-b border-border-primary last:border-none"
+              className={`group block cursor-pointer pb-4 border-b border-border-primary last:border-none ${
+                !project.title && 'pointer-events-none opacity-30'
+              }`}
             >
               <div className="relative text-base md:text-lg font-medium text-accent-light tracking-wide transition-all group-hover:pl-1.5">
-                {project.title}
+                {project.title || '(Kosong)'}
                 <span className="absolute left-[-0.9rem] top-1 w-2 h-2 bg-accent-light rounded-full"></span>
                 <span className="block w-0 h-[1px] bg-accent-light group-hover:w-full transition-all duration-300 mt-1"></span>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
-        {/* Floating Image */}
+        {/* Floating Image Preview */}
         <AnimatePresence>
-          {hoveredProject && (
+          {hoveredProject && hoveredProject.image && (
             <motion.div
               key={hoveredProject.title}
               className="hidden md:block fixed z-50 pointer-events-none"
@@ -99,7 +100,7 @@ const ProjectSection = () => {
           )}
         </AnimatePresence>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -54,11 +54,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${plusJakartaSans.variable}`}> {/* HAPUS 'dark' di sini */}
       <body className="font-sans antialiased bg-primary-bg text-primary-text transition-colors duration-300">
         <div className="h-screen overflow-y-scroll snap-y snap-proximity overflow-x-hidden scroll-smooth">
-          {/*
-            PENTING: Gunakan PreloaderWrapper sebagai pembungkus utama.
-            Ini akan memastikan preloader Anda berfungsi dengan benar
-            di App Router.
-          */}
+
           <PreloaderWrapper>
             {children}
           </PreloaderWrapper>

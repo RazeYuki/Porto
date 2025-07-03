@@ -76,3 +76,12 @@ html,
 .snap-y.snap-proximity {
   -ms-overflow-style: none; /* IE and Edge */
 }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 40s linear infinite;
+}

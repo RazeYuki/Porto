@@ -17,7 +17,7 @@ const AboutPage = () => {
         {/* Profile Card */}
         <div className="bg-secondary-bg p-6 rounded-xl shadow border border-border-primary flex flex-col items-center justify-center">
           <Image
-            src="/profile.jpg"
+            src="/images/profile.jpg"
             alt="Profile Picture"
             width={120}
             height={120}
@@ -25,10 +25,10 @@ const AboutPage = () => {
           />
           <h1 className="text-2xl font-bold text-center">Hi, I'm Hamdika Putra</h1>
           <p className="text-sm text-center text-secondary-text mt-2">
-            I build interfaces & digital experiences.
+            A Machine Learning Enthusiast and Frontend Developer passionate about building smart and interactive digital solutions.
           </p>
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1iDmuU2lcHynCsv5ZvA_wh5NiQXcie-e-/view?usp=drive_link"
             target="_blank"
             className="mt-4 px-4 py-2 border border-accent-light rounded-lg text-accent-light text-sm hover:bg-accent-light hover:text-primary-bg transition"
           >
@@ -40,12 +40,12 @@ const AboutPage = () => {
         <div className="md:col-span-1 grid grid-cols-2 gap-4">
           {[
             {
-              href: 'mailto:hamdikaputra@example.com',
+              href: 'mailto:hmdkaptr@gmail.com',
               icon: <Mail size={36} />,
               bg: 'bg-gradient-to-tr from-green-300 to-red-600 hover:to-red-700 text-white'
             },
             {
-              href: 'https://www.instagram.com/yourusername',
+              href: 'https://www.instagram.com/hmdkaptr_/',
               icon: <Instagram size={36} />,
               bg: 'bg-gradient-to-tr from-pink-500 via-red-400 to-yellow-400 text-white'
             },
@@ -77,12 +77,12 @@ const AboutPage = () => {
         {/* About Description */}
         <div className="md:col-span-2 bg-secondary-bg p-6 rounded-xl shadow border border-border-primary text-base leading-relaxed">
           <p>
-            I’m a final-year <strong>Informatics student</strong> at Universitas Amikom Yogyakarta, deeply passionate
-            about <strong>Frontend Development</strong> and UI/UX Design. My focus is building performant, clean, and delightful web experiences
-            using modern frameworks like <code className="text-accent-light">React</code>, <code className="text-accent-light">Next.js</code>, and <code className="text-accent-light">Framer Motion</code>.
+            I’m a final-year <strong>Informatics student</strong> at Universitas Amikom Yogyakarta, with a specialization in <strong>Big Data Analytics</strong>.
+            I'm deeply passionate about <strong>Machine Learning</strong>, <strong>Artificial Intelligence</strong>, and <strong>Frontend Development</strong>.
           </p>
           <p className="mt-4">
-            I also enjoy learning design systems, contributing to small creative projects, and continuously exploring the intersection of technology and aesthetics.
+            My interests lie in combining intelligent systems with intuitive design using tools like <code className="text-accent-light">React</code>, <code className="text-accent-light">Next.js</code>, <code className="text-accent-light">Framer Motion</code>, and <code className="text-accent-light">TensorFlow</code>.
+            I thrive on learning and building applications that are both smart and visually compelling.
           </p>
         </div>
 
@@ -92,25 +92,25 @@ const AboutPage = () => {
           <ul className="space-y-4 text-sm">
             <li className="flex justify-between border-b pb-2 border-border-primary">
               <div>
-                <strong>Aern Store</strong> <br />
-                <span className="text-secondary-text">Co-Founder</span>
+                <strong>Bangkit Academy </strong> <br />
+                <span className="text-secondary-text">Machine Learning Cohort 2024</span>
               </div>
-              <span className="text-secondary-text">Mar 2023 – Present</span>
+              <span className="text-secondary-text">September 2024 – Desember 2024</span>
             </li>
             <li className="flex justify-between border-b pb-2 border-border-primary">
               <div>
-                <strong>Programming Tadsikode</strong> <br />
-                <span className="text-secondary-text">Development Team</span>
+                <strong>Himpunan Mahasiswa Informatika (HMIF)</strong> <br />
+                <span className="text-secondary-text">Hubungan Masyarakat</span>
               </div>
-              <span className="text-secondary-text">Jan 2025 – Present</span>
+              <span className="text-secondary-text">Februari 2023 – September 2024</span>
             </li>
-            <li className="flex justify-between">
+           {/* <li className="flex justify-between">
               <div>
                 <strong>Freelance Project</strong> <br />
                 <span className="text-secondary-text">Various small UI/UX jobs</span>
               </div>
               <span className="text-secondary-text">Ongoing</span>
-            </li>
+            </li> */}
           </ul>
         </div>
 
