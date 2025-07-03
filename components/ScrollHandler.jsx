@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function ScrollHandler() {
+const ScrollHandler = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -18,5 +18,7 @@ export default function ScrollHandler() {
     }
   }, [searchParams]);
 
-  return null; // tidak render apapun
-}
+  return null; // Tidak merender apa-apa
+};
+
+export default ScrollHandler;
