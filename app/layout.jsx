@@ -12,15 +12,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: 'Dika Portfolio',
-  description: 'Portofolio Dika sebagai seorang Frontend Developer',
-  keywords: ['frontend', 'developer', 'react', 'nextjs', 'portfolio', 'web development'],
+  title: 'RazeYuki',
+  description: 'My Portfolio',
+  keywords: ['bigdata', 'developer', 'react', 'nextjs', 'portfolio', 'web development'],
   authors: [{ name: 'Dika' }],
   creator: 'Dika',
   publisher: 'Dika',
   openGraph: {
-    title: 'Dika Portfolio',
-    description: 'Portofolio Dika sebagai seorang Frontend Developer',
+    title: 'RazeYuki',
+    description: 'My Portfolio',
     url: 'https://yourportfolio.com',
     siteName: 'Dika Portfolio',
     images: [
@@ -28,7 +28,7 @@ export const metadata = {
         url: 'https://yourportfolio.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Dika Portfolio Website',
+        alt: 'Razeyuki',
       },
     ],
     locale: 'id_ID',
@@ -36,8 +36,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dika Portfolio',
-    description: 'Portofolio Dika sebagai seorang Frontend Developer',
+    title: 'RazeYuki',
+    description: 'My Portfolio',
     creator: '@yourtwitterhandle',
     images: ['https://yourportfolio.com/twitter-image.jpg'],
   },
