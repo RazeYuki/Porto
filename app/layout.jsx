@@ -1,13 +1,9 @@
 // app/layout.jsx
-// Ini adalah Server Component. TIDAK ADA 'use client' di sini.
-
 import './globals.css';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-// Hapus baris ini: import Preloader from '../components/Preloader';
+import PreloaderWrapper from '../components/PreloaderWrapper';
+import Script from 'next/script'; // <-- Tambahkan ini
 
-import PreloaderWrapper from '../components/PreloaderWrapper'; // Import PreloaderWrapper
-
-// --- Konfigurasi Font ---
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -15,7 +11,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ['300', '400', '500', '600', '700', '800'],
 });
 
-// --- Metadata (SEO) ---
 export const metadata = {
   title: 'Dika Portfolio',
   description: 'Portofolio Dika sebagai seorang Frontend Developer',
@@ -48,13 +43,26 @@ export const metadata = {
   },
 };
 
-// --- Root Layout Component ---
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable}`}> {/* HAPUS 'dark' di sini */}
+    <html lang="en" className={`${plusJakartaSans.variable}`}>
+      <head>
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2S4ZLVZ5FS"
+        />
+        <Script id="ga">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2S4ZLVZ5FS');
+          `}
+        </Script>
+      </head>
       <body className="font-sans antialiased bg-primary-bg text-primary-text transition-colors duration-300">
         <div className="h-screen overflow-y-scroll snap-y snap-proximity overflow-x-hidden scroll-smooth">
-
           <PreloaderWrapper>
             {children}
           </PreloaderWrapper>
