@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 const projects = [
   {
     title: 'Prediksi Pinjaman Bank',
-    image: '/images/loanml.jpg',
+    image: '/images/bank.jpg',
     link: 'https://pinjaman-cvau8lsjucr8poxn2qlnri.streamlit.app/#hasil-prediksi',
   },
   {
     title: 'Prediksi Penyakit Lumpy Skin Disease',
-    image: '/images/',
+    image: '/images/lsd.jpg',
     link: 'https://prediksilumpy.streamlit.app/',
   },
   {
