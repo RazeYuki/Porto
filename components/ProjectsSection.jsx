@@ -6,15 +6,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 const projects = [
   {
     title: 'Prediksi Pinjaman Bank',
-    image: '/images/loanml.jpg',
+    image: '/images/bank.jpg',
     link: 'https://pinjaman-cvau8lsjucr8poxn2qlnri.streamlit.app/#hasil-prediksi',
+  },
+  {
+    title: 'Prediksi Penyakit Lumpy Skin Disease',
+    image: '/images/lsd.jpg',
+    link: 'https://prediksilumpy.streamlit.app/',
   },
   {
     title: 'Aplikasi J-Go',
     image: '/images/Jgo.png',
     link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
   },
-  
 ];
 
 const ProjectSection = () => {

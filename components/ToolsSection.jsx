@@ -17,7 +17,7 @@ const tools = [
 
 const ToolsSection = () => {
   const router = useRouter();
-  const repeatedTools = [...tools, ...tools, ...tools];
+  const repeatedTools = [...tools, ...tools, ...tools, ...tools, ...tools];
 
   return (
     <section
@@ -36,7 +36,7 @@ const ToolsSection = () => {
 
       {/* Marquee */}
       <div className="relative z-10 w-full overflow-hidden">
-        <div className="marquee whitespace-nowrap flex gap-12">
+        <div className="marquee whitespace-nowrap flex gap-">
           {repeatedTools.map((tool, idx) => (
             <div
               key={idx}
