@@ -15,10 +15,20 @@ const projects = [
     link: 'https://prediksilumpy.streamlit.app/',
   },
   {
+    title: ' Prediksi Emisi Karbon Dioksida (CO₂)',
+    image: '/images/emisi.jpg',
+    link: 'https://prediksiemisi.streamlit.app/',
+  },
+  {
     title: 'Aplikasi J-Go',
     image: '/images/Jgo.png',
     link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
   },
+<<<<<<< HEAD
+=======
+  
+  
+>>>>>>> 6ac48fc98098a7aed01ae0398b80ee42265f1107
 ];
 
 const ProjectSection = () => {
