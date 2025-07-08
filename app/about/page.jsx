@@ -77,12 +77,13 @@ const AboutPage = () => {
         {/* About Description */}
         <div className="md:col-span-2 bg-secondary-bg p-6 rounded-xl shadow border border-border-primary text-base leading-relaxed">
           <p>
-            I’m a final-year <strong>Informatics student</strong> at Universitas Amikom Yogyakarta, with a specialization in <strong>Big Data Analytics</strong>.
-            I'm deeply passionate about <strong>Machine Learning</strong>, <strong>Artificial Intelligence</strong>, and <strong>Frontend Development</strong>.
+            I am an Informatics student at Universitas Amikom Yogyakarta with a strong interest in <strong>machine learning</strong>, <strong>data science</strong>, and the broader field of <strong>artificial intelligence</strong>. As a 2024 Machine Learning Cohort in the Bangkit Academy—a prestigious program supported by Google, GoTo, and Traveloka—I have gained hands-on experience in building ML models, applying data-driven thinking, and solving real-world problems through technology.
           </p>
           <p className="mt-4">
-            My interests lie in combining intelligent systems with intuitive design using tools like <code className="text-accent-light">React</code>, <code className="text-accent-light">Next.js</code>, <code className="text-accent-light">Framer Motion</code>, and <code className="text-accent-light">TensorFlow</code>.
-            I thrive on learning and building applications that are both smart and visually compelling.
+            I enjoy working on meaningful projects that challenge my technical and analytical skills. Over time, I’ve developed a solid foundation in <code className="text-accent-light">Python</code> programming, data preprocessing, and model evaluation, and I continue to sharpen these skills through continuous learning and collaboration.
+          </p>
+          <p className="mt-4">
+            With a growth mindset, I’m eager to contribute to teams and initiatives that leverage machine learning to create impact—whether in business, education, or society. I am passionate about learning, collaborating, and evolving as a future-ready tech professional.
           </p>
         </div>
 
@@ -104,13 +105,6 @@ const AboutPage = () => {
               </div>
               <span className="text-secondary-text">Februari 2023 – September 2024</span>
             </li>
-           {/* <li className="flex justify-between">
-              <div>
-                <strong>Freelance Project</strong> <br />
-                <span className="text-secondary-text">Various small UI/UX jobs</span>
-              </div>
-              <span className="text-secondary-text">Ongoing</span>
-            </li> */}
           </ul>
         </div>
 
