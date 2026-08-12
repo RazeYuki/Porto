@@ -22,6 +22,7 @@ const SOCIAL = [
 
 const AboutPageContent = () => {
   const router = useRouter();
+  const techs = Object.values(SKILLS).flat();
 
   // Lanyard uses internal physics; provide a subtle ambient bob on the wrapper so it doesn't appear fully static.
   // No entrance pop-up animation — the card remains interactive at all times.
@@ -31,7 +32,7 @@ const AboutPageContent = () => {
   const [displayText, setDisplayText] = useState('');
   const [index, setIndex] = useState(0);
   // faster typing default
-  const [speed, setSpeed] = useState(12);
+  const [speed, setSpeed] = useState(6);
   const intervalRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -51,14 +52,23 @@ const AboutPageContent = () => {
     const rect = container.getBoundingClientRect();
     const y = e.clientY - rect.top;
     const percentage = y / rect.height;
-    const minSpeed = 6;
-    const maxSpeed = 60;
+    const minSpeed = 4;
+    const maxSpeed = 30;
     const newSpeed = Math.floor(maxSpeed - (maxSpeed - minSpeed) * percentage);
     setSpeed(newSpeed);
   };
 
+  const highlightCode = (text) => {
+    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const escaped = esc(text);
+    return escaped
+      .replace(/'(.*?)'/g, "<span class='text-emerald-300'>'$1'</span>")
+      .replace(/\b(const|function|return|console|log|developer|skills|name|role)\b/g, "<span class='text-sky-300'>$1</span>")
+      .replace(/(\/\/.*?$)/gm, "<span class='text-white/60'>$1</span>");
+  };
+
   return (
-    <main className="min-h-screen w-full bg-gradient-to-br from-[#03050a] via-[#061018] to-[#04121a] text-white px-6 py-16">
+    <main className="min-h-screen w-full px-6 py-16">
       <motion.section className="w-full max-w-6xl mx-auto" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         {/* Top grid: Lanyard | Skills & Info | Social */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
