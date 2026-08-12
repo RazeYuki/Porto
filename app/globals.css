@@ -39,8 +39,18 @@ html, body {
   --color-accent-dark: #00aaff; /* stronger accent */
 }
 
-/* Global page background gradient (applies to entire site) */
+/* Global page background: use theme variables. Dark gradient applied only when .dark is active */
 html, body {
+  /* default to variable so light theme works */
+  background-color: var(--color-bg-primary);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: auto;
+}
+
+/* Dark theme: apply global gradient so pages feel unified */
+.dark html, .dark body {
   background-image: linear-gradient(180deg, #071428 0%, #000000 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
