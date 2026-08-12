@@ -49,8 +49,8 @@ html, body {
   background-size: auto;
 }
 
-/* Dark theme: apply global gradient so pages feel unified */
-.dark html, .dark body {
+/* Dark theme: apply global gradient so pages feel unified when .dark is present on html/body */
+html.dark, body.dark, .dark {
   background-image: linear-gradient(180deg, #071428 0%, #000000 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
