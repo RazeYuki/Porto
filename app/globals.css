@@ -119,3 +119,26 @@ html,
   display: inline-flex;
   animation: marquee 40s linear infinite;
 }
+
+/* About page theme overrides
+   Any remaining utility classes that reference white opacities are overridden here so
+   the About page surfaces follow the theme variables. This keeps changes surgical and
+   avoids refactoring every single utility class in-place. */
+.about-page [class*="bg-white/"] {
+  background-color: var(--color-bg-secondary) !important;
+}
+.about-page [class*="text-white/"] {
+  color: var(--color-text-secondary) !important;
+}
+.about-page [class*="text-white"] {
+  color: var(--color-text-primary) !important;
+}
+.about-page [class*="border-white/"] {
+  border-color: var(--color-border-primary) !important;
+}
+.about-page [class*="hover:bg-white/"] {
+  background-color: var(--color-bg-primary) !important;
+}
+.about-page pre, .about-page code {
+  color: var(--color-text-primary) !important;
+}
