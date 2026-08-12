@@ -12,11 +12,6 @@ const navItems = [
     label: 'Home'
   },
   {
-    href: '/about',
-    icon: <UserRound size={20} />, // aboutmainpage
-    label: 'about'
-  },
-  {
     href: '/?section=projects',
     icon: <Code size={20} />, // projects
     label: 'Projects'

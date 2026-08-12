@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import HeroSection from '@/components/HeroSection';
-import LanyardShowcaseSection from '@/components/LanyardShowcaseSection';
 import AboutPageContent from '@/components/AboutPageContent';
 import ToolsSection from '@/components/ToolsSection';
 import ProjectsSection from '@/components/ProjectsSection';
@@ -19,7 +18,6 @@ export default function HomeClient() {
     <main>
       <ScrollHandler />
       <HeroSection />
-      <LanyardShowcaseSection />
       <AboutPageContent />
       <ToolsSection />
       <QuoteSection />
