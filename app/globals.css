@@ -51,10 +51,24 @@ html, body {
 
 /* Dark theme: apply global gradient so pages feel unified when .dark is present on html/body */
 html.dark, body.dark, .dark {
-  background-image: linear-gradient(180deg, #071428 0%, #000000 100%);
+  /* smoother multi-stop gradient to reduce visible seams between sections */
+  background-image: linear-gradient(180deg, #071428 0%, #06121a 35%, #041018 60%, #02040a 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-position: center top;
+  background-size: 100% 100%;
+  /* ensure a subtle overlay so contrasts between sections blend nicely */
+  background-blend-mode: overlay;
+}
+
+/* subtle overlay layer to mask any hairline seams and add depth */
+html.dark::before, body.dark::before, .dark::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.06));
+  z-index: 0;
 }
 
 /* Definisi Keyframes untuk animasi 'blob' */
