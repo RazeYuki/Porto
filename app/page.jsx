@@ -2,7 +2,8 @@
 
 import dynamic from 'next/dynamic';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
+import LanyardShowcaseSection from '@/components/LanyardShowcaseSection';
+import AboutPageContent from '@/components/AboutPageContent';
 import ToolsSection from '@/components/ToolsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import MusicPlayerTrigger from '@/components/MusicPlayerTrigger';
@@ -18,7 +19,8 @@ export default function HomeClient() {
     <main>
       <ScrollHandler />
       <HeroSection />
-      <AboutSection />
+      <LanyardShowcaseSection />
+      <AboutPageContent />
       <ToolsSection />
       <QuoteSection />
       <ProjectsSection />

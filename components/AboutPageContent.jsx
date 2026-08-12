@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import Image from 'next/image';
 
-const AboutPage = () => {
+const AboutPageContent = () => {
   return (
     <main className="min-h-screen w-full bg-primary-bg text-primary-text px-4 py-12 flex justify-center items-start">
       <motion.div
@@ -30,6 +30,7 @@ const AboutPage = () => {
           <a
             href="https://drive.google.com/file/d/1iDmuU2lcHynCsv5ZvA_wh5NiQXcie-e-/view?usp=drive_link"
             target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 px-4 py-2 border border-accent-light rounded-lg text-accent-light text-sm hover:bg-accent-light hover:text-primary-bg transition"
           >
             Resume / CV
@@ -118,4 +119,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default AboutPageContent;

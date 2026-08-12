@@ -24,6 +24,21 @@ const projects = [
     image: '/images/Jgo.png',
     link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
   },
+  {
+    title: 'Aplikasi J-Go',
+    image: '/images/Jgo.png',
+    link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
+  },
+  {
+    title: 'Aplikasi J-Go',
+    image: '/images/Jgo.png',
+    link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
+  },
+  {
+    title: 'Aplikasi J-Go',
+    image: '/images/Jgo.png',
+    link: 'https://drive.google.com/file/d/1rvvISrfV_RV5q-FthAd9Tb8GrupPHUZt/view?usp=drivesdk',
+  },
 ];
 
 const ProjectSection = () => {
