@@ -1,28 +1,7 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import HeroSection from '@/components/HeroSection';
-import AboutPageContent from '@/components/AboutPageContent';
-import ToolsSection from '@/components/ToolsSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import MusicPlayerTrigger from '@/components/MusicPlayerTrigger';
-import QuoteSection from "@/components/QuoteSection";
+import HomePage from '@/components/pages/HomePage';
 
-// ScrollHandler hanya dirender di client
-const ScrollHandler = dynamic(() => import('@/components/ScrollHandler'), {
-  ssr: false,
-});
-
-export default function HomeClient() {
-  return (
-    <main>
-      <ScrollHandler />
-      <HeroSection />
-      <AboutPageContent />
-      <ToolsSection />
-      <QuoteSection />
-      <ProjectsSection />
-      <MusicPlayerTrigger />
-    </main>
-  );
+export default function Home() {
+  return <HomePage />;
 }

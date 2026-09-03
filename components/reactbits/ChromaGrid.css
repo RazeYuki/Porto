@@ -1,0 +1,333 @@
+.chroma-grid {
+  --x: 50%;
+  --y: 50%;
+  --r: 220px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(var(--cols), minmax(0, 1fr));
+
+  grid-template-rows:
+    repeat(var(--rows), minmax(0, 1fr));
+
+  gap: 12px;
+
+  width: 100%;
+
+  position: relative;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.chroma-card {
+  position: relative;
+
+  min-width: 0;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  border: 1px solid var(--card-border);
+
+  background: #05070b;
+
+  color: #f8fafc;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+
+  isolation: isolate;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+.light .chroma-card,
+[data-theme='light'] .chroma-card {
+  background: #ffffff;
+
+  color: #08090b;
+}
+
+
+/* =========================================================
+   LOGO CARD
+========================================================= */
+
+.chroma-card--logo {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   MOUSE GLOW
+========================================================= */
+
+.chroma-card--logo::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle 120px
+        at var(--mouse-x)
+        var(--mouse-y),
+      rgba(255, 255, 255, 0.09),
+      transparent 70%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+
+  z-index: 0;
+}
+
+.chroma-card--logo:hover::before {
+  opacity: 1;
+}
+
+
+.light .chroma-card--logo::before,
+[data-theme='light'] .chroma-card--logo::before {
+  background:
+    radial-gradient(
+      circle 120px
+        at var(--mouse-x)
+        var(--mouse-y),
+      rgba(0, 0, 0, 0.07),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.chroma-logo {
+  position: relative;
+
+  z-index: 2;
+
+  width: 64px;
+
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #e5e7eb;
+
+  transition:
+    transform 0.35s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s ease;
+}
+
+.chroma-logo svg {
+  width: 100%;
+
+  height: 100%;
+
+  stroke-width: 1.8;
+}
+
+.chroma-card:hover .chroma-logo {
+  transform: scale(1.12);
+}
+
+.light .chroma-logo,
+[data-theme='light'] .chroma-logo {
+  color: #111827;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.chroma-number {
+  position: absolute;
+
+  top: 12px;
+
+  right: 14px;
+
+  z-index: 3;
+
+  font-family: monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.light .chroma-number,
+[data-theme='light'] .chroma-number {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.chroma-card:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--card-border);
+}
+
+.light .chroma-card:hover,
+[data-theme='light'] .chroma-card:hover {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.chroma-card:focus-visible {
+  outline: 2px solid #38bdf8;
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.chroma-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 10;
+
+  background:
+    radial-gradient(
+      circle var(--r)
+        at var(--x) var(--y),
+      transparent 0%,
+      rgba(0, 0, 0, 0.04) 35%,
+      rgba(0, 0, 0, 0.38) 100%
+    );
+
+  transition:
+    opacity 0.25s ease;
+}
+
+
+.light .chroma-overlay,
+[data-theme='light'] .chroma-overlay {
+  background:
+    radial-gradient(
+      circle var(--r)
+        at var(--x) var(--y),
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 35%,
+      rgba(255, 255, 255, 0.40) 100%
+    );
+}
+
+
+/* =========================================================
+   FADE
+========================================================= */
+
+.chroma-fade {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 11;
+
+  background:
+    radial-gradient(
+      circle var(--r)
+        at var(--x) var(--y),
+      transparent 0%,
+      rgba(0, 0, 0, 0.20) 80%
+    );
+
+  opacity: 1;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+
+.light .chroma-fade,
+[data-theme='light'] .chroma-fade {
+  background:
+    radial-gradient(
+      circle var(--r)
+        at var(--x) var(--y),
+      transparent 0%,
+      rgba(255, 255, 255, 0.267) 80%
+    );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 640px) {
+  .chroma-grid {
+    gap: 10px;
+  }
+
+  .chroma-card {
+    border-radius: 15px;
+  }
+
+  .chroma-logo {
+    width: 44px;
+
+    height: 44px;
+  }
+
+  .chroma-number {
+    top: 9px;
+
+    right: 10px;
+  }
+}

@@ -2,15 +2,15 @@
 // TIDAK ADA 'use client' DI SINI
 
 export const metadata = {
-  title: 'RazeYuki', // <-- Ganti dengan nama portofolio Anda
-  description: 'My Portfolio', // <-- Ganti dengan deskripsi Anda
-  keywords: ['BigData', 'developer', 'react', 'nextjs', 'portfolio'],
-  authors: [{ name: 'Dika' }],
+  title: 'Hamdika Putra | Machine Learning, Data Science & AI',
+  description: 'Informatics graduate focused on Machine Learning, Data Science, AI, data analysis, and visualization.',
+  keywords: ['machine learning', 'data science', 'artificial intelligence', 'data analysis', 'data visualization', 'python', 'tensorflow', 'portfolio'],
+  authors: [{ name: 'Hamdika Putra' }],
   openGraph: {
-    title: 'RazeYuki',
-    description: 'My Portfolio',
+    title: 'Hamdika Putra | Machine Learning, Data Science & AI',
+    description: 'Informatics graduate focused on Machine Learning, Data Science, and AI.',
     url: 'https://yourportfolio.com',
-    siteName: 'RazeYuki',
+    siteName: 'Hamdika Putra Portfolio',
     images: [
       {
         url: 'https://yourportfolio.com/og-image.jpg',
@@ -23,8 +23,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Razeyuki',
-    description: 'My Portfolio',
+    title: 'Hamdika Putra | Machine Learning, Data Science & AI',
+    description: 'Informatics graduate focused on Machine Learning, Data Science, and AI.',
     creator: '@yourtwitterhandle',
     images: ['https://yourportfolio.com/twitter-image.jpg'],
   },

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="128" viewBox="0 0 1024 128">
+  <defs>
+    <pattern id="weave" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#070b12" />
+      <rect width="3" height="12" fill="#111827" opacity=".8" />
+    </pattern>
+  </defs>
+  <rect width="1024" height="128" fill="url(#weave)" />
+  <path d="M0 5H1024M0 123H1024" stroke="#334155" stroke-width="3" opacity=".85" />
+  <g fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" letter-spacing="2">
+    <text x="28" y="75">HAMDIKA</text>
+    <text x="205" y="75">HAMDIKA</text>
+    <text x="382" y="75">HAMDIKA</text>
+    <text x="559" y="75">HAMDIKA</text>
+    <text x="736" y="75">HAMDIKA</text>
+    <text x="913" y="75">HAMDIKA</text>
+  </g>
+  <g fill="#60a5fa" opacity=".9">
+    <circle cx="166" cy="64" r="4" />
+    <circle cx="343" cy="64" r="4" />
+    <circle cx="520" cy="64" r="4" />
+    <circle cx="697" cy="64" r="4" />
+    <circle cx="874" cy="64" r="4" />
+  </g>
+</svg>

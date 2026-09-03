@@ -1,34 +1,26 @@
 // app/layout.jsx
 import './globals.css';
-import { Plus_Jakarta_Sans } from 'next/font/google';
-import PreloaderWrapper from '../components/PreloaderWrapper';
+import PreloaderWrapper from '@/components/layout/PreloaderWrapper';
 import Script from 'next/script'; // <-- Tambahkan ini
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-plus-jakarta-sans',
-  weight: ['300', '400', '500', '600', '700', '800'],
-});
-
 export const metadata = {
-  title: 'RazeYuki',
-  description: 'My Portfolio',
-  keywords: ['bigdata', 'developer', 'react', 'nextjs', 'portfolio', 'web development'],
-  authors: [{ name: 'Dika' }],
-  creator: 'Dika',
-  publisher: 'Dika',
+  title: 'Hamdika Putra | Machine Learning, Data Science & AI',
+  description: 'Portfolio Hamdika Putra, an Informatics graduate focused on Machine Learning, Data Science, AI, data analysis, visualization, and practical applications.',
+  keywords: ['machine learning', 'data science', 'artificial intelligence', 'data analysis', 'data visualization', 'python', 'tensorflow', 'portfolio'],
+  authors: [{ name: 'Hamdika Putra' }],
+  creator: 'Hamdika Putra',
+  publisher: 'Hamdika Putra',
   openGraph: {
-    title: 'RazeYuki',
-    description: 'My Portfolio',
+    title: 'Hamdika Putra | Machine Learning, Data Science & AI',
+    description: 'Informatics graduate focused on Machine Learning, Data Science, AI, data analysis, and practical applications.',
     url: 'https://yourportfolio.com',
-    siteName: 'Dika Portfolio',
+    siteName: 'Hamdika Putra Portfolio',
     images: [
       {
         url: 'https://yourportfolio.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Razeyuki',
+        alt: 'Hamdika Putra - Machine Learning, Data Science & AI Portfolio',
       },
     ],
     locale: 'id_ID',
@@ -36,8 +28,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RazeYuki',
-    description: 'My Portfolio',
+    title: 'Hamdika Putra | Machine Learning, Data Science & AI',
+    description: 'Informatics graduate focused on Machine Learning, Data Science, and AI.',
     creator: '@yourtwitterhandle',
     images: ['https://yourportfolio.com/twitter-image.jpg'],
   },
@@ -45,7 +37,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable}`}>
+    <html lang="en">
       <head>
         {/* Google Analytics */}
         <Script

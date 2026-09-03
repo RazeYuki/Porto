@@ -1,0 +1,8 @@
+.decrypted-text {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.decrypted-text > span {
+  display: inline-block;
+}
