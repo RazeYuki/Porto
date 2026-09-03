@@ -613,7 +613,7 @@ function ContactColumn() {
         </p>
 
         <a
-          href="/images/CVnew.pdf"
+          href="/images/CVneww.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="

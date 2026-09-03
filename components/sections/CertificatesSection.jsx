@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Award, ChevronDown, ChevronUp, ExternalLink, FileText, GraduationCap, Search, X } from 'lucide-react';
 import { useLanguage } from '@/components/providers/LanguageProvider';
@@ -137,7 +138,17 @@ function CertificatePreview({ certificate, className = '' }) {
     );
   }
 
-  return <img src={`${ASSET_PATH}${imageSrc}`} alt={certificate.title} className={`aspect-[16/10] w-full object-cover object-center ${className}`} />;
+  return (
+    <div className="relative aspect-[16/10] w-full">
+      <Image
+        src={`${ASSET_PATH}${imageSrc}`}
+        alt={certificate.title}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className={`object-cover object-center ${className}`}
+      />
+    </div>
+  );
 }
 
 function CertificateCard({ certificate, onOpen }) {
@@ -183,7 +194,14 @@ function CertificateModal({ certificate, onClose }) {
           {isPdf ? (
             <iframe src={`${asset}#view=FitH`} title={certificate.title} className="h-[42vh] min-h-[280px] w-full rounded-lg bg-white" />
           ) : (
-            <img src={asset} alt={certificate.title} className="w-full rounded-lg bg-white object-contain" />
+            <Image
+              src={asset}
+              alt={certificate.title}
+              width={1600}
+              height={1000}
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="h-auto w-full rounded-lg bg-white object-contain"
+            />
           )}
         </div>
         <div className="p-6 sm:p-7">

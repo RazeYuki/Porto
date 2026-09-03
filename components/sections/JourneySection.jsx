@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import {
   Award,
   Brain,
@@ -140,6 +141,7 @@ const timelineData = [
 
 export default function JourneySection() {
   const { lang } = useLanguage();
+  const [isTimelineReady, setIsTimelineReady] = useState(false);
   const content = lang === 'ID'
     ? {
         eyebrow: 'Perjalanan Saya',
@@ -151,6 +153,10 @@ export default function JourneySection() {
         title: <>The path behind<br />the projects.</>,
         description: 'From university foundations to machine learning, research, and the next chapter. Every milestone shaped how I approach problems, build systems, and work with data.',
       };
+
+  useEffect(() => {
+    setIsTimelineReady(true);
+  }, []);
 
   return (
     <section
@@ -209,9 +215,11 @@ export default function JourneySection() {
           sm:mt-[-10px]
         "
       >
-        <RadialOrbitalTimeline
-          timelineData={timelineData}
-        />
+        {isTimelineReady ? (
+          <RadialOrbitalTimeline timelineData={timelineData} />
+        ) : (
+          <div className="rotl" aria-hidden="true" />
+        )}
       </div>
     </section>
   );

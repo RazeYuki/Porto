@@ -146,6 +146,10 @@ export default function RadialOrbitalTimeline({
 
           const isActive =
             activeId === item.id;
+          const scale = isActive
+            ? 1.18
+            : position.depth;
+          const transform = `translate(calc(-50% + ${position.x.toFixed(3)}px), calc(-50% + ${position.y.toFixed(3)}px)) scale(${scale.toFixed(3)})`;
 
           return (
             <div
@@ -156,13 +160,7 @@ export default function RadialOrbitalTimeline({
                   : ''
               }`}
               style={{
-                transform: `
-                  translate(
-                    calc(-50% + ${position.x}px),
-                    calc(-50% + ${position.y}px)
-                  )
-                  scale(${isActive ? 1.18 : position.depth})
-                `,
+                transform,
                 zIndex: isActive
                   ? 100
                   : Math.round(
@@ -170,7 +168,7 @@ export default function RadialOrbitalTimeline({
                     ),
                 opacity: isActive
                   ? 1
-                  : position.depth,
+                  : Number(position.depth.toFixed(3)),
               }}
               onClick={(event) => {
                 event.stopPropagation();
