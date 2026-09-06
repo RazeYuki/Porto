@@ -7,10 +7,10 @@ import { useLanguage } from '@/components/providers/LanguageProvider';
 const QUOTES = {
   EN: `Technology is more than code that runs flawlessly.
 It is a new language for building ideas, connecting possibilities,
-and improving lives—one thoughtful solution can create a meaningful impact.`,
+and improving lives one thoughtful solution can create a meaningful impact.`,
   ID: `Teknologi lebih dari sekadar kode yang berjalan sempurna.
 Teknologi adalah bahasa baru untuk membangun ide, menghubungkan berbagai kemungkinan,
-dan memberi dampak—satu solusi yang dirancang dengan baik dapat membawa perubahan berarti.`,
+dan memberi dampak satu solusi yang dirancang dengan baik dapat membawa perubahan berarti.`,
 };
 
 export default function QuoteSection() {
