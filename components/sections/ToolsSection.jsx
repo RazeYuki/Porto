@@ -442,7 +442,7 @@ export default function ToolsSection() {
   const content = lang === 'ID'
     ? {
         aboutMe: 'Tentang Saya',
-        introOne: 'Saya Hamdika Putra, lulusan Informatika dari Universitas AMIKOM Yogyakarta dengan fokus pada Machine Learning, Data Science, dan Artificial Intelligence. Saya mengerjakan analisis data, visualisasi, pengembangan dashboard, serta keseluruhan alur model—mulai dari eksplorasi dan prapemrosesan hingga evaluasi dan penerapan praktis.',
+        introOne: 'Saya Hamdika Putra, lulusan Informatika dari Universitas AMIKOM Yogyakarta dengan fokus pada Machine Learning, Data Science, dan Artificial Intelligence. Saya mengerjakan analisis data, visualisasi, pengembangan dashboard, serta keseluruhan alur model mulai dari eksplorasi dan prapemrosesan hingga evaluasi dan penerapan praktis.',
         introTwo: 'Saya menyelesaikan 900+ jam pelatihan intensif Machine Learning dan AI melalui Bangkit Academy 2024. Riset saya, “Comparative Study of Logistic Regression, Random Forest, and XGBoost for Bank Loan Approval Classification,” diterbitkan pada Journal of Applied Informatics and Computing (JAIC), Vol. 9 No. 5, sebagai penulis pertama.',
         eyebrow: 'Dasar-Dasar',
         title: 'Sosok di Balik Kode',
@@ -459,7 +459,7 @@ export default function ToolsSection() {
       }
     : {
         aboutMe: 'About Me',
-        introOne: 'I am Hamdika Putra, an Informatics graduate from Universitas AMIKOM Yogyakarta focusing on Machine Learning, Data Science, and Artificial Intelligence. I work across data analysis, visualization, dashboard development, and the complete model workflow—from exploration and preprocessing to evaluation and practical applications.',
+        introOne: 'I am Hamdika Putra, an Informatics graduate from Universitas AMIKOM Yogyakarta focusing on Machine Learning, Data Science, and Artificial Intelligence. I work across data analysis, visualization, dashboard development, and the complete model workflow from exploration and preprocessing to evaluation and practical applications.',
         introTwo: 'I completed 900+ hours of intensive Machine Learning and AI training through Bangkit Academy 2024. My research, “Comparative Study of Logistic Regression, Random Forest, and XGBoost for Bank Loan Approval Classification,” was published in the Journal of Applied Informatics and Computing (JAIC), Vol. 9 No. 5, as first author.',
         eyebrow: 'The Basics',
         title: 'The Person Behind the Code',
